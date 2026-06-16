@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us</title>
+</head>
+
+<header>
+  <h1 style="background-color: yellow; color: darkblue; line-height: 50px; font-family: sans-serif;" align="left"><b>Contact Form</b></h1>
+</header>
+<hr>
+
+<body>
+  
+  <form action="#" method="post" accept-charset="utf-8">
+    
+  </form>
+  
+  
+  
+  
+  
+  <!-- Contact Us Section Start -->
+<div style="background-color: #111111; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; max-width: 450px; margin: 40px auto; padding: 30px 25px; border-radius: 15px; box-shadow: 0 8px 24px rgba(0,0,0,0.6); border: 1px solid #222; text-align: left;">
+    
+    <!-- হেডিং ও ছোট বর্ণনা -->
+    <div style="text-align: center; margin-bottom: 25px;">
+        <span style="color: #ffb400; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Get In Touch</span>
+        
+        <hr>
+        
+        <h2 style="font-size: 28px; margin: 5px 0 0 0; color: #ffffff;">Contact Us</h2>
+        <p style="color: #888888; font-size: 14px; margin-top: 5px;">যেকোনো প্রয়োজনে আমাদের মেসেজ পাঠান</p>
+    </div>
+    
+    <!-- ফর্ম শুরু -->
+    <form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <!-- নাম ইনপুট -->
+        <div>
+            <label style="font-size: 14px; color: #cccccc; display: block; margin-bottom: 8px; font-weight: 500;">Your Name</label>
+            <input type="text" id="custName" placeholder="আপনার পুরো নাম লিখুন" required
+                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333; background-color: #1a1a1a; color: #fff; font-size: 15px; box-sizing: border-box; outline: none;">
+        </div>
+
+        <!-- ইমেইল ইনপুট -->
+        <div>
+            <label style="font-size: 14px; color: #cccccc; display: block; margin-bottom: 8px; font-weight: 500;">Email Address</label>
+            <input type="email" id="custEmail" placeholder="আপনার ইমেইল ঠিকানা" required
+                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333; background-color: #1a1a1a; color: #fff; font-size: 15px; box-sizing: border-box; outline: none;">
+        </div>
+
+        <!-- মেসেজ ইনপুট (বড় বক্স) -->
+        <div>
+            <label style="font-size: 14px; color: #cccccc; display: block; margin-bottom: 8px; font-weight: 500;">Your Message</label>
+            <textarea id="custMessage" rows="4" placeholder="আপনার মতামত বা জিজ্ঞাসা এখানে লিখুন..." required
+                      style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333; background-color: #1a1a1a; color: #fff; font-size: 15px; box-sizing: border-box; outline: none; resize: none; font-family: inherit;"></textarea>
+        </div>
+
+        <!-- সাবমিট বাটন -->
+        <button type="button" onclick="sendContactMessage()" 
+                style="background-color: #ffb400; color: #000000; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(255, 180, 0, 0.2); transition: 0.3s;">
+            Send Message 🚀
+        </button>
+
+    </form>
+</div>
+<!-- Contact Us Section End -->
+
+<!-- জাভাস্ক্রিপ্ট কোড (বাটন সচল করার জন্য) -->
+<script>
+    function sendContactMessage() {
+        // ইনপুটের ভ্যালুগুলো চেক করার জন্য
+        const name = document.getElementById('custName').value;
+        const email = document.getElementById('custEmail').value;
+        const message = document.getElementById('custMessage').value;
+
+        // যদি কোনো বক্স খালি থাকে
+        if(name === "" || email === "" || message === "") {
+            alert("অনুগ্রহ করে সবকটি বক্স সঠিকভাবে পূরণ করুন! ⚠️");
+        } else {
+            // সফলভাবে সাবমিট হলে
+            alert("ধন্যবাদ " + name + "! আপনার মেসেজটি আমাদের কাছে পৌঁছেছে। আমরা শীঘ্রই যোগাযোগ করব। 🎉");
+            
+            // ফর্মটি খালি করে দেওয়ার জন্য
+            document.getElementById('contactForm').reset();
+        }
+    }
+</script>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <p style="margin-bottom: 50px;"></p>
+  
+  
+    <div style="margin: 40px 0;" align="center">
+      <a href="Index.cam.html" style="background: #45f3ff; color: #0b0c10; text-decoration: none; padding: 12px 25px; font-weight: bold; border-radius: 25px; box-shadow: 0 0 15px #45f3ff; font-size: 15px; display: inline-block; transition: 0.3s;">
+        ← Back to Home
+      </a>
+    </div>
+
+<hr>
+
+<footer>
+  <h6 style="text-align: center;">©Copyright 2026. All Right Reserved to Well Food.</h6>
+  <h6 style="text-align: center;">Developed by XYZ Communication, Design & Managed </h6>
+</footer>
+
+</body>
+</html>
