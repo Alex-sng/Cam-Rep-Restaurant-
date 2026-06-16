@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAM SENG RESTURANT - Foods Menu</title>
+</head>
+<body style="background-color: #0b0c10; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; text-align: center;">
+
+  <header style="background: linear-gradient(135deg, #1f2833, #0b0c10); padding: 25px 15px; border-bottom: 2px solid #45f3ff33; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <h1 style="color: #45f3ff; margin: 0; font-size: 32px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; filter: drop-shadow(0 0 10px #45f3ff);">
+      OUR FOODS MENU
+    </h1>
+    <p style="color: #c5c6c7; margin: 5px 0 0 0; font-size: 14px; letter-spacing: 1px;">তাজা এবং সুস্বাদু খাবারের সেরা কালেকশন</p>
+  </header>
+
+  <main style="max-width: 600px; margin: 30px auto; padding: 0 15px; box-sizing: border-box;">
+
+    <div style="margin-bottom: 40px; background: #1f2833; padding: 20px 10px; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="color: #ffb400; text-align: left; font-size: 22px; margin: 0 0 20px 10px; border-left: 4px solid #ffb400; padding-left: 10px; text-transform: uppercase;">Cake</h2>
+      
+      <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://cdn.prod.website-files.com/614a379840dbad1848e598c2/679906d29abceb2bbceb06b3_6799062816366d61273c52b4_IMG_1560.jpeg" alt="cake" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 250</div>
+          <button type="button" onclick="orderFood('Red Velvet Cake')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://www.oetker.ca/assets/recipes/assets/b75297c3976e41a39cf3e74376d1459a/360x400/birthday-cake-11.webp" alt="cake" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 320</div>
+          <button type="button" onclick="orderFood('Birthday Cake')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://tropolite.com/media/uploads/2024/08/08/2_e884b6ea-1d96-4dfa-92ba-2a27fcec638e_480x480.webp" alt="Cake" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 280</div>
+          <button type="button" onclick="orderFood('Tropolite Cake')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU2q_4ED3POUE1WP25VX1hP7GBgNWzi-vMNnnAVVhMeEzTCalhj_9XHDgb&s=10" alt="cake" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 400</div>
+          <button type="button" onclick="orderFood('Premium Cake')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 40px; background: #1f2833; padding: 20px 10px; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="color: #ffb400; text-align: left; font-size: 22px; margin: 0 0 20px 10px; border-left: 4px solid #ffb400; padding-left: 10px; text-transform: uppercase;">Burger</h2>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://assets.bonappetit.com/photos/5b919cb83d923e31d08fed17/1:1/w_2560%2Cc_limit/basically-burger-1.jpg" alt="burger" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 180</div>
+          <button type="button" onclick="orderFood('Classic Burger')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kRteb8XphDZ1f0xsABwv34EaT5frtM7_3V_ImHVZIpwFJHdFoT6Ttkjk&s=10" alt="burger" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 220</div>
+          <button type="button" onclick="orderFood('Cheese Burger')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 40px; background: #1f2833; padding: 20px 10px; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="color: #ffb400; text-align: left; font-size: 22px; margin: 0 0 20px 10px; border-left: 4px solid #ffb400; padding-left: 10px; text-transform: uppercase;">Pizza</h2>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://wp-cdn.typhur.com/wp-content/uploads/2025/01/homemade-pizza-in-air-fryer.jpg" alt="pizza" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 350</div>
+          <button type="button" onclick="orderFood('Pan Pizza')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg?crop=0.6666666666666667xw:1xh;center,top&resize=1200:*" alt="pizza" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 490</div>
+          <button type="button" onclick="orderFood('Cheese Pizza')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+      </div>
+    </div>
+
+
+<!--এখান থেকে মিষ্টির পার্ট শুরু-->
+
+    <div style="margin-bottom: 40px; background: #1f2833; padding: 20px 10px; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="color: #ffb400; text-align: left; font-size: 22px; margin: 0 0 20px 10px; border-left: 4px solid #ffb400; padding-left: 10px; text-transform: uppercase;">Sweets</h2>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSafzEBBpNiBFwoeGFEqkfg86_ompAbM0i08VWvsEQ-cYiE9HpAQzhqMw7q&s=10" alt="sweet" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 150</div>
+          <button type="button" onclick="orderFood('Mix Sweets')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://media.istockphoto.com/id/1184527900/photo/indian-asian-seeets.jpg?s=612x612&w=0&k=20&c=kCaGaRCPCxVbCnp5FLnmWRmA8xbs7wz0oXoSGzrxtb4=" alt="sweet" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 180</div>
+          <button type="button" onclick="orderFood('Laddoo Special')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 40px; background: #1f2833; padding: 20px 10px; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="color: #ffb400; text-align: left; font-size: 22px; margin: 0 0 20px 10px; border-left: 4px solid #ffb400; padding-left: 10px; text-transform: uppercase;">Bread/Bun</h2>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaTudb4-lyvH3LZLpAblIvrw4o2htUrDo7VR-JgI-zeA&s=10" alt="Bread" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 80</div>
+          <button type="button" onclick="orderFood('Mix Sweets')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQRx1RTMzsVQ8bdNkO5FJUPT6ANWMNXJyTvBU0e4q5uw&s=10" alt="Bun" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 100</div>
+          <button type="button" onclick="orderFood('Laddoo Special')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="margin-bottom: 40px; background: #1f2833; padding: 20px 10px; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="color: #ffb400; text-align: left; font-size: 22px; margin: 0 0 20px 10px; border-left: 4px solid #ffb400; padding-left: 10px; text-transform: uppercase;">Cookies</h2>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6j-WWx3_rwZMIMVIFeEbNB15sqy3sDokbffLqgcKf_A&s=10" alt="Cookies" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 180</div>
+          <button type="button" onclick="orderFood('Mix Sweets')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM4jD--6SsQ173dSubZev2ifAudH0Ec50g7DTeVjqCvA&s=10" alt="Cookies" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 200</div>
+          <button type="button" onclick="orderFood('Laddoo Special')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+      </div>
+    </div>
+    
+    
+        <div style="margin-bottom: 40px; background: #1f2833; padding: 20px 10px; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="color: #ffb400; text-align: left; font-size: 22px; margin: 0 0 20px 10px; border-left: 4px solid #ffb400; padding-left: 10px; text-transform: uppercase;">Biscuit</h2>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShPFGMutKKhmpkYETJ9cLPbY6L5qgS60sjMzhulQvhDTwm8IsxiUYMeZym&s=10" alt="Biscuit" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 100</div>
+          <button type="button" onclick="orderFood('Mix Sweets')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+        <div style="background: #111; padding: 10px; border-radius: 10px; width: 145px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_QkmHSBM2LuHisiDSUiiyaBuLVz96cBsoKFm0Qtrj3Q&s=10" alt="Biscuit" style="width: 125px; height: 125px; object-fit: cover; border-radius: 8px;">
+          <div style="color: #66ffb3; font-weight: bold; margin: 8px 0 5px 0; font-size: 14px;">৳ 120</div>
+          <button type="button" onclick="orderFood('Laddoo Special')" style="background: #ff4757; color: white; border: none; padding: 6px 12px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">Order</button>
+        </div>
+      </div>
+    </div>
+    
+
+    <div style="margin: 40px 0;">
+      <a href="Index.cam.html" style="background: #45f3ff; color: #0b0c10; text-decoration: none; padding: 12px 25px; font-weight: bold; border-radius: 25px; box-shadow: 0 0 15px #45f3ff; font-size: 15px; display: inline-block; transition: 0.3s;">
+        ← Back to Home
+      </a>
+    </div>
+
+  </main>
+
+  <footer style="background: #111; padding: 15px 10px; border-top: 1px solid #222; margin-top: 5px;">
+    <p style="color: #45f3ff; margin: 0; font-size: 12px;">&copy; Copyright 2026. All Rights Reserved to Well Food.</p>
+    <p style="color: #45f3ff; margin: 5px 0 0 0; font-size: 11px; letter-spacing: 0.5px;">      Developed by XYZ Communication, Design & Managed</p>
+    
+  </footer>
+
+  <script>
+    function orderFood(foodName) {
+      alert("ধন্যবাদ ! আপনার স্পেশাল '" + foodName + "' সফলভাবে অর্ডার করা হয়েছে। 🎉");
+    }
+  </script>
+
+</body>
+      </html>
+      
