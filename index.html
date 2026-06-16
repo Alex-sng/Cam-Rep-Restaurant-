@@ -1,153 +1,86 @@
 <!DOCTYPE html>
-</html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Portfolio Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAM SENG RESTURANT - Home</title>
 </head>
+<body style="background-color: #0b0c10; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box;">
 
+  <!-- ১. প্রফেশনাল হেডার ও লোগো এরিয়া -->
+  <header style="background: #1f2833; padding: 20px; text-align: center; border-bottom: 2px solid #45f3ff33; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+    <div style="font-size: 40px; filter: drop-shadow(0 0 8px #45f3ff);">🍳</div>
+    <h1 style="margin: 5px 0 0 0; font-size: 28px; color: #45f3ff; font-family: Verdana, sans-serif; letter-spacing: 2px; text-transform: uppercase;">
+      CAM SENG RESTURANT
+    </h1>
+  </header>
 
-<body>
-  
-<!--রেস্টুরেন্টের নেম এখানে-->
+  <!-- ২. আধুনিক মেনুবার বা নেভিগেশন বার (Navbar) -->
+  <nav style="background-color: #111; padding: 12px 10px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid #222;">
+    <!-- তুমি চাইলে href-এর ভেতর ফাইলের নামগুলো ছোট হাতের অক্ষরে পরিবর্তন করে নিতে পারো -->
+    <a href="Index.cam.html" style="color: #66ffb3; text-decoration: none; font-size: 15px; font-weight: bold; padding: 8px 12px; border-radius: 5px; background: rgba(102, 255, 179, 0.1);">Home</a>
+    <a href="foods.html" target="_blank" style="color: #c5c6c7; text-decoration: none; font-size: 15px; font-weight: bold; padding: 8px 12px;">Foods</a>
+    <a href="aboutus.html" target="_blank" style="color: #c5c6c7; text-decoration: none; font-size: 15px; font-weight: bold; padding: 8px 12px;">About Us</a>
+    <a href="contactus.html" target="_blank" style="color: #c5c6c7; text-decoration: none; font-size: 15px; font-weight: bold; padding: 8px 12px;">Contact Us</a>
+    <a href="login&registration.html" target="_blank" style="color: #45f3ff; text-decoration: none; font-size: 15px; font-weight: bold; padding: 8px 12px; border: 1px dashed #45f3ff; border-radius: 5px;">Login/Register</a>
+  </nav>
 
-<header>
-  <h2><div style="text-align: center; font-size: 30px; font-family: Verdana, Geneva, Tahoma, sans-serif; background-color: white; color: darkblue;"> CAM SENG RESTURANT </div></h2>
-  
-  <hr>
-  <h3>Home</h3>
-</header>
+  <!-- ৩. মেইন ব্যানার সেকশন (প্রচুর <br> এর বদলে সিএসএস মার্জিন ব্যবহার করা হয়েছে) -->
+  <main style="max-width: 600px; margin: 60px auto; padding: 0 20px; text-align: center;">
+    <div style="background: linear-gradient(135deg, #ff416c, #ff4b2b); padding: 25px; border-radius: 12px; box-shadow: 0 8px 24px rgba(255,65,108,0.3);">
+      <h2 style="margin: 0; font-size: 32px; color: white; text-transform: uppercase; font-weight: 800; letter-spacing: 1px;">
+        Made Fresh Everyday
+      </h2>
+      <p style="margin: 10px 0 0 0; color: #fff; opacity: 0.9; font-size: 16px;">শহরের সেরা স্বাদের হাইজেনিক খাবার এখন আপনার হাতের মুঠোয়।</p>
+    </div>
+  </main>
 
-
-  <ul>
-    <li>Menu
-    <ul>
-      
-      <!--সমস্ত পেজের লিংক গুলো এখানে হবে-->
-      
-    <li><a href="___"; target="_blank">Home</a></li>
+  <!-- ৪. ইনফরমেশন সেকশন (মেনু এবং ক্যাটাগরি পাশাপাশি বসানোর জন্য Flexbox ব্যবহার) -->
+  <section style="max-width: 600px; margin: 40px auto; padding: 0 20px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
     
-    <li> <a href="foods.html" target="_blank">Foods</a></li>
-    
-    <li><a href="___"; target="_blank">Outlets</a></li>
-    
-    <li><a href="___"; target="_blank">Compare</a></li>
-    
-    <li> <a href="___"; target="_blank">About Us</a></li>
-    
-    <li> <a href="___"; target="_blank">Contact Us</a></li> 
-    
-    <li><a href="___"; target="_blank">Login/Register</a></li>
-    
-    
-    
-  
-    
-    </ul></li>
-  </ul>
+    <!-- মেইন মেনু লিঙ্কসমূহ -->
+    <div style="background: #1f2833; padding: 20px; border-radius: 10px; flex: 1; min-width: 250px; border: 1px solid #333;">
+      <h3 style="color: #ffb400; margin-top: 0; border-bottom: 2px solid #ffb400; padding-bottom: 5px; font-size: 18px;">MAIN MENU</h3>
+      <p style="line-height: 2; margin: 10px 0 0 0; color: #c5c6c7; font-size: 15px;">
+        • Home <br>
+        • Shop <br>
+        • Outlet <br>
+        • About Us <br>
+        • Contact Us <br>
+        • Refund Policy
+      </p>
+    </div>
 
+    <!-- ক্যাটাগরিসমূহ -->
+    <div style="background: #1f2833; padding: 20px; border-radius: 10px; flex: 1; min-width: 250px; border: 1px solid #333;">
+      <h3 style="color: #ffb400; margin-top: 0; border-bottom: 2px solid #ffb400; padding-bottom: 5px; font-size: 18px;">CATEGORIES</h3>
+      <p style="line-height: 2; margin: 10px 0 0 0; color: #c5c6c7; font-size: 15px;">
+        • Cake <br>
+        • Sweets <br>
+        • Snacks <br>
+        • Bread/Bun <br>
+        • Cookies <br>
+        • Biscuits
+      </p>
+    </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> <br> <br> <br> <br> <br> <br> <br>
-<br>
-<br>
-<br>
-<br> <br> <br> <br> <br> <br> <br> <br>
-<br>
-<br>
-<br>
-<br> <br> <br> <br> <br> <br> <br> <br>
-<br>
-<br>
-<br>
-<br> <br>
-<h2 style="margin-bottom: 0px; background-color: whitesmoke; color: red;"><b>Made Fresh</b>
-<br>
-<b>Everyday</b></h2>
-<br>
+  </section>
 
+  <!-- ৫. যোগাযোগের তথ্য (Contact Us) -->
+  <section style="max-width: 600px; margin: 40px auto; padding: 20px; background: #1f2833; border-radius: 10px; border: 1px solid #333;">
+    <h3 style="color: #45f3ff; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 5px; font-size: 20px;">Contact Us:</h3>
+    <div style="font-size: 15px; color: #c5c6c7; line-height: 1.8; margin-top: 15px;">
+      <p style="margin: 8px 0;">🏠 House # 1, Road # 1, Block # F, Serene Apartment, Banani, Dhaka 1213</p>
+      <p style="margin: 8px 0;">📞 +1 212 000 0000</p>
+      <p style="margin: 8px 0;">✉️ info-camseng@res.com</p>
+    </div>
+  </section>
 
-
-<!--মেনুতে যা যা থাকছে সেগুলো এখানে-->
-
-<p><b>MAIN MENU</b><br>
-
-  home <br>
-  shop <br>
-  outlet <br>
-  About Us <br>
-  Contact Us <br>
-  Refund Policy 
-</p>
-
-
-
-
-
-<!--যে যে ক্যাটাগরির পণ্য পাওয়া যাচ্ছে সেগুলো এখানে-->
-
-<p><b>CATEGORIES</b><br>
-
-  Cake <br>
-  Sweets <br>
-  Snacks <br>
-  Bread/Bun <br>
-  Cookies <br>
-  Biscuits 
-</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--যোগাযোগের জন্য সমস্ত তথ্য-->
-
-<h2>Contact Us:</h2>
-
-
-<p>🏠 House # 1; Road # 1 Block # F Serene Apartment Banani Dhaka 1213</p>
-
-<p> 📞+1 212 000 0000</p>
-
-<p>✉️ info-camseng@res.com</p>
-
-
-<hr>
-
-<footer>
-  <h6 style="text-align: center;">©Copyright 2026. All Right Reserved to Well Food.</h6>
-  <h6 style="text-align: center;">Developed by XYZ Communication, Design & Managed </h6>
-</footer>
-
-
-
-
-
+  <!-- ৬. প্রফেশনাল ফুটার -->
+  <footer style="background-color: #111; padding: 20px 10px; border-top: 1px solid #2f3e46; text-align: center; font-size: 13px; color: #868e96; line-height: 1.6;">
+    <p style="margin: 0;">&copy; Copyright 2026. All Rights Reserved to Well Food.</p>
+    <p style="margin: 5px 0 0 0;">Developed by XYZ Communication, Design & Managed</p>
+  </footer>
 
 </body>
 </html>
