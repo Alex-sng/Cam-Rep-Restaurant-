@@ -85,18 +85,18 @@
     </div>
   </section>
 
-  <section style="max-width: 600px; margin: 30px auto; padding: 20px; background: #1a1e24; border-radius: 10px; border: 1px dashed #ffb400; text-align: center;">
-    <h4 style="color: #ffb400; margin: 0 0 15px 0; font-size: 16px; text-transform: uppercase; letter-spacing: 1px;">
+  <section style="max-width: 600px; margin: 30px auto; padding: 25px 20px; background: #1f2833; border-radius: 10px; border: 2px solid #ffb400; text-align: center; box-shadow: 0 4px 15px rgba(255, 180, 0, 0.15);">
+    <h4 style="color: #ffb400; margin: 0 0 20px 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">
       📢 Share Our Website With Friends
     </h4>
     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
       
-      <a href="#" id="homeWA" target="_blank" style="flex: 1; min-width: 140px; background-color: #25D366; color: white; text-decoration: none; padding: 12px; font-weight: bold; border-radius: 6px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); font-size: 14px; transition: 0.2s;">
-        💬 Share on WhatsApp
+      <a href="#" id="homeWA" target="_blank" style="flex: 1; min-width: 150px; background-color: #25D366; color: white; text-decoration: none; padding: 14px 20px; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); font-size: 15px; display: inline-block;">
+        💬 WhatsApp
       </a>
       
-      <a href="#" id="homeFB" target="_blank" style="flex: 1; min-width: 140px; background-color: #1877F2; color: white; text-decoration: none; padding: 12px; font-weight: bold; border-radius: 6px; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.2); font-size: 14px; transition: 0.2s;">
-        📘 Share on Facebook
+      <a href="#" id="homeFB" target="_blank" style="flex: 1; min-width: 150px; background-color: #1877F2; color: white; text-decoration: none; padding: 14px 20px; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3); font-size: 15px; display: inline-block;">
+        📘 Facebook
       </a>
       
     </div>
@@ -115,7 +115,7 @@
       // শেয়ার মেসেজের টেক্সট
       const customText = encodeURIComponent("দোস্ত! এই চমৎকার রেস্টুরেন্ট ওয়েবসাইট এবং গেমটা একটু ঘুরে দেখ। দারুন সব ফিচার আছে! লিংক: " + targetUrl);
       
-      // অফিশিয়াল এপিআই দিয়ে লিংক সেট করা হলো
+      // অফিশিয়াল এপিআই লিংক অ্যাসাইন করা হলো
       document.getElementById("homeWA").href = "https://api.whatsapp.com/send?text=" + customText;
       document.getElementById("homeFB").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(targetUrl);
     }
