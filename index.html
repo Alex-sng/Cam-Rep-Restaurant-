@@ -110,12 +110,17 @@
   <script>
     function activateHomeShare() {
       // এটি অটোমেটিক ব্রাউজারের কারেন্ট লাইভ লিংকটি ক্যাচ করবে
-      const targetUrl = window.location.href; 
+      let targetUrl = window.location.href; 
       
-      // শেয়ার মেসেজের টেক্সট
-      const customText = encodeURIComponent("দোস্ত! এই চমৎকার রেস্টুরেন্ট ওয়েবসাইট এবং গেমটা একটু ঘুরে দেখ। দারুন সব ফিচার আছে! লিংক: " + targetUrl);
+      // গিটহাব লোকালহোস্ট ট্র্যাকিং হ্যান্ডেল
+      if (targetUrl.includes("localhost") || targetUrl.startsWith("file://")) {
+        targetUrl = "https://alex-sng.github.io/Cam-Rep-Restaurant/";
+      }
       
-      // অফিশিয়াল এপিআই লিংক অ্যাসাইন করা হলো
+      // হোয়াটসঅ্যাপের জন্য চমৎকার মেসেজ ও লিংক টেক্সট
+      const customText = encodeURIComponent("Explore the delicious menu and exciting features of CAM SENG RESTURANT! Visit here: " + targetUrl);
+      
+      // ফেসবুক এবং হোয়াটসঅ্যাপে লিংক অ্যাসাইন
       document.getElementById("homeWA").href = "https://api.whatsapp.com/send?text=" + customText;
       document.getElementById("homeFB").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(targetUrl);
     }
