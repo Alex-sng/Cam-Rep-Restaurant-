@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CAM SENG - Insane Bird Challenge 🎮</title>
+  <style>
+    body {
+      background-color: #0b0c10;
+      color: #ffffff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      touch-action: manipulation;
+      user-select: none;
+    }
+    header {
+      background: linear-gradient(135deg, #1f2833, #0b0c10);
+      padding: 15px;
+      border-bottom: 2px solid #ff475733;
+    }
+    h1 {
+      color: #ff4757;
+      margin: 0;
+      font-size: 24px;
+      text-transform: uppercase;
+      filter: drop-shadow(0 0 8px #ff4757);
+    }
+    .game-container {
+      max-width: 380px;
+      margin: 20px auto;
+      background: #1f2833;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #ff4757;
+      box-shadow: 0 4px 20px rgba(255, 71, 87, 0.2);
+    }
+    .mode-bar {
+      display: flex;
+      justify-content: space-between;
+      background: #0b0c10;
+      padding: 5px;
+      border-radius: 8px;
+      border: 1px solid #45f3ff33;
+      margin-bottom: 15px;
+    }
+    .mode-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #aaa;
+      padding: 8px 0;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+      text-transform: uppercase;
+    }
+    .mode-btn.active[data-mode="easy"] { background: #2ed573; color: #000; }
+    .mode-btn.active[data-mode="medium"] { background: #ffa502; color: #000; }
+    .mode-btn.active[data-mode="hard"] { background: #ff4757; color: #fff; box-shadow: 0 0 10px #ff4757; }
+
+    canvas {
+      background: #000;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid #ff4757;
+      border-radius: 8px;
+      max-width: 100%;
+    }
+    .status-box {
+      color: #ffb400;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .action-btn {
+      background: #ff4757;
+      border: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+      color: #fff;
+      font-size: 14px;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px rgba(255, 71, 87, 0.4);
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 20px 0;
+      background: #45f3ff;
+      color: #0b0c10;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>INSANE BIRD CHALLENGE 🐦⚡</h1>
+    <p style="color: #c5c6c7; margin: 3px 0 0 0; font-size: 12px;">মোড সিলেক্ট করো এবং নিজের রেকর্ড নিজে ভাঙো!</p>
+  </header>
+
+  <main class="game-container">
+    <div class="mode-bar">
+      <button class="mode-btn" data-mode="easy" onclick="changeMode('easy')">Easy</button>
+      <button class="mode-btn active" data-mode="medium" onclick="changeMode('medium')">Medium</button>
+      <button class="mode-btn" data-mode="hard" onclick="changeMode('hard')">Hard 💀</button>
+    </div>
+
+    <div class="status-box">Score: <span id="bird-score">0</span> | High: <span id="bird-high">0</span></div>
+    <canvas id="birdCanvas" width="320" height="400"></canvas>
+    <p style="font-size:11px; color:#aaa; margin:10px 0;">[ স্ক্রিনে যেকোনো জায়গায় দ্রুত ট্যাপ করে পাখিকে বাঁচাও ]</p>
+    <button class="action-btn" onclick="initBird()">Try Again</button>
+  </main>
+
+  <a href="index.html" class="back-btn">← Back to Home</a>
+
+  <footer style="background: #111; padding: 15px; font-size: 11px; color: #666; margin-top: 20px;">
+    <p>Designed & Developed by Alex-sng</p>
+  </footer>
+
+  <script>
+    const bCanvas = document.getElementById("birdCanvas");
+    const bCtx = bCanvas.getContext("2d");
+    let bird, pipes, bScore, bHighScore = 0, bId;
+    let isGameOver = false;
+
+    let currentMode = "medium";
+    let gameSettings = {
+      easy: { speed: 2.0, gap: 115, pipeDistance: 160 },
+      medium: { speed: 2.7, gap: 95, pipeDistance: 145 },
+      hard: { speed: 3.5, gap: 78, pipeDistance: 130 }
+    };
+
+    function changeMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.mode-btn[data-mode="${mode}"]`).classList.add('active');
+      
+      if(mode === "easy") bCanvas.style.borderColor = "#2ed573";
+      else if(mode === "medium") bCanvas.style.borderColor = "#ffa502";
+      else bCanvas.style.borderColor = "#ff4757";
+
+      initBird();
+    }
+
+    function initBird() {
+      if(bId) cancelAnimationFrame(bId);
+      
+      // পাখির ওজন (gravity) কমানো হয়েছে ০.৫ থেকে ০.৩ এ। লাফানোর পাওয়ারও (jump) ব্যালেন্স করা হয়েছে।
+      bird = { x: 60, y: 150, velocity: 0, gravity: 0.3, jump: -5.2, radius: 9 };
+      pipes = [];
+      bScore = 0;
+      isGameOver = false;
+      document.getElementById("bird-score").innerText = bScore;
+      updateBird();
+    }
+
+    function handleBirdJump(e) {
+      if(!isGameOver) {
+        bird.velocity = bird.jump;
+        if(e.cancelable) e.preventDefault();
+      }
+    }
+    bCanvas.addEventListener("touchstart", handleBirdJump, {passive: false});
+    bCanvas.addEventListener("mousedown", handleBirdJump);
+
+    function updateBird() {
+      if (isGameOver) return;
+      bCtx.clearRect(0, 0, bCanvas.width, bCanvas.height);
+
+      bird.velocity += bird.gravity;
+      bird.y += bird.velocity;
+
+      if(currentMode === "easy") bCtx.fillStyle = "#2ed573";
+      else if(currentMode === "medium") bCtx.fillStyle = "#ffa502";
+      else bCtx.fillStyle = "#ff4757";
+
+      bCtx.beginPath();
+      bCtx.arc(bird.x, bird.y, bird.radius, 0, Math.PI*2);
+      bCtx.fill();
+
+      if(bird.y + bird.radius >= bCanvas.height || bird.y - bird.radius <= 0) {
+        endBirdGame();
+        return;
+      }
+
+      let currentConfig = gameSettings[currentMode];
+      if(pipes.length === 0 || pipes[pipes.length - 1].x < bCanvas.width - currentConfig.pipeDistance) {
+        let gap = currentConfig.gap;
+        let topHeight = Math.floor(Math.random() * (bCanvas.height - gap - 100)) + 50;
+        pipes.push({ x: bCanvas.width, top: topHeight, bottom: bCanvas.height - topHeight - gap, passed: false });
+      }
+
+      for (let i = pipes.length - 1; i >= 0; i--) {
+        let pipe = pipes[i];
+        pipe.x -= currentConfig.speed;
+
+        bCtx.fillStyle = "#45f3ff";
+        bCtx.fillRect(pipe.x, 0, 45, pipe.top);
+        bCtx.fillRect(pipe.x, bCanvas.height - pipe.bottom, 45, pipe.bottom);
+
+        if(!pipe.passed && pipe.x + 45 < bird.x) {
+          pipe.passed = true;
+          bScore++;
+          document.getElementById("bird-score").innerText = bScore;
+          if(bScore > bHighScore) {
+            bHighScore = bScore;
+            document.getElementById("bird-high").innerText = bHighScore;
+          }
+        }
+
+        if (bird.x + bird.radius > pipe.x && bird.x - bird.radius < pipe.x + 45) {
+          if (bird.y - bird.radius < pipe.top || bird.y + bird.radius > bCanvas.height - pipe.bottom) {
+            endBirdGame();
+            return;
+          }
+        }
+
+        if(pipe.x < -45) pipes.splice(i, 1);
+      }
+
+      bId = requestAnimationFrame(updateBird);
+    }
+
+    function endBirdGame() {
+      isGameOver = true;
+      bCtx.fillStyle = "rgba(0,0,0,0.85)";
+      bCtx.fillRect(0, 0, bCanvas.width, bCanvas.height);
+      bCtx.fillStyle = "#ff4757";
+      bCtx.font = "bold 24px Arial";
+      bCtx.fillText("WASTED 💀", bCanvas.width/2 - 60, bCanvas.height/2 - 10);
+      bCtx.font = "14px Arial";
+      bCtx.fillStyle = "#fff";
+      
+      if(currentMode === "hard") {
+        bCtx.fillText("You are not pro enough!", bCanvas.width/2 - 70, bCanvas.height/2 + 20);
+      } else {
+        bCtx.fillText("Try Hard mode if you dare!", bCanvas.width/2 - 80, bCanvas.height/2 + 20);
+      }
+    }
+
+    initBird();
+  </script>
+</body>
+</html>
