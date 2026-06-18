@@ -84,60 +84,55 @@
 
   </div>
 
-  <!-- ফায়ারবেস জাভাস্ক্রিপ্ট মডিউল -->
-  <script type="module">
-    import { initializeApp } from "https://gstatic.com";
-    import { getAuth, signInWithEmailAndPassword } from "https://gstatic.com";
+<script src="https://gstatic.com"></script>
+<script src="https://gstatic.com"></script>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
-      authDomain: "cam-seng-restaurant.firebaseapp.com",
-      projectId: "cam-seng-restaurant",
-      storageBucket: "cam-seng-restaurant.firebasestorage.app",
-      messagingSenderId: "142330585238",
-      appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
-      measurementId: "G-9FXQ682T0D"
-    };
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
+    authDomain: "://firebaseapp.com",
+    projectId: "cam-seng-restaurant",
+    storageBucket: "cam-seng-restaurant.firebasestorage.app",
+    messagingSenderId: "142330585238",
+    appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
+    measurementId: "G-9FXQ682T0D"
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
 
-    // লগইন বাটনের ক্লিক ইভেন্ট লিসেনার
-    document.getElementById('loginBtn').addEventListener('click', function() {
-      const email = document.getElementById('loginEmail').value;
-      const password = document.getElementById('loginPassword').value;
+  document.getElementById('loginBtn').addEventListener('click', function() {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
 
-      if(email === "" || password === "") {
-        alert("অনুগ্রহ করে ইমেইল এবং পাসওয়ার্ড দুটিই লিখুন! ⚠️");
-        return;
-      }
+    if(email === "" || password === "") {
+      alert("অনুগ্রহ করে ইমেইল এবং পাসওয়ার্ড দুটিই লিখুন! ⚠️");
+      return;
+    }
 
-      const btn = document.getElementById('loginBtn');
-      btn.innerText = "Logging in...";
-      btn.disabled = true;
+    const btn = document.getElementById('loginBtn');
+    btn.innerText = "Logging in...";
+    btn.disabled = true;
 
-      // ফায়ারবেস দিয়ে সাইন-ইন মেথড রান
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          alert("সাফল্যের সাথে লগইন হয়েছে! 🚀 স্বাগতম ফিরে আসার জন্য।");
-          document.getElementById('loginForm').reset();
-          window.location.href = "Index.cam.html";
-        })
-        .catch((error) => {
-          btn.innerText = "Login";
-          btn.disabled = false;
-          
-          // সুনির্দিষ্ট এরর মেসেজ হ্যান্ডেলিং
-          if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-            alert("⚠️ ভুল: ইমেইল অথবা পাসওয়ার্ডটি সঠিক নয়। আবার চেষ্টা করুন!");
-          } else if (error.code === 'auth/invalid-email') {
-            alert("⚠️ ভুল: ইমেইলের গঠনটি সঠিক নয়!");
-          } else {
-            alert("লগইন ব্যর্থ: " + error.message);
-          }
-        });
-    });
-  </script>
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert("সাফল্যের সাথে লগইন হয়েছে! 🚀 স্বাগতম ফিরে আসার জন্য।");
+        document.getElementById('loginForm').reset();
+        window.location.href = "Index.cam.html";
+      })
+      .catch((error) => {
+        btn.innerText = "Login";
+        btn.disabled = false;
+        
+        if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+          alert("⚠️ ভুল: ইমেইল অথবা পাসওয়ার্ডটি সঠিক নয়। আবার চেষ্টা করুন!");
+        } else {
+          alert("লগইন ব্যর্থ: " + error.message);
+        }
+      });
+  });
+</script>
+  
 
 </body>
 </html>
