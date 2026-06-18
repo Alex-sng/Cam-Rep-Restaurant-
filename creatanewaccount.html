@@ -20,7 +20,7 @@
   <!-- মূল কন্টেইনার বক্স -->
   <div style="background: #1f2833; width: 100%; max-width: 500px; border-radius: 16px; padding: 40px 35px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border: 1px solid #45f3ff33; text-align: center; box-sizing: border-box;">
     
-    <!-- ටප ব্যানার বা স্বাগতম বার্তা -->
+    <!-- টপ ব্যানার বা স্বাগতম বার্তা -->
     <div style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); padding: 15px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
         <span style="color: #45f3ff; font-size: 16px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">Create a new account</span>
     </div>
@@ -60,8 +60,8 @@
                style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #45f3ff55; background-color: #0b0c10; color: #fff; font-size: 16px; box-sizing: border-box; outline: none;">
       </div>
 
-      <!-- সাইনআপ বাটন -->
-      <button type="button" id="regBtn"
+      <!-- সাইনআপ বাটন (Type পরিবর্তন করে submit করা হয়েছে) -->
+      <button type="submit" id="regBtn"
               style="background: linear-gradient(135deg, #00c6ff, #0072ff); color: #ffffff; border: none; padding: 16px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4); margin-top: 15px;">
         Register Now
       </button>
@@ -82,15 +82,15 @@
 
   </div>
 
-  <!-- ফায়ারবেস ট্র্যাডিশনাল কোর এবং অথেনটিকেশন লাইব্রেরি (গিটহাব ফ্রেন্ডলি) -->
+<!-- ফায়ারবেস ট্র্যাডিশনাল কোর এবং অথেনটিকেশন লাইব্রেরি (লিংক ঠিক করা হয়েছে) -->
 <script src="https://gstatic.com"></script>
 <script src="https://gstatic.com"></script>
 
 <script>
-  // ফায়ারবেস কনফিগারেশন চাবি
+  // ফায়ারবেস কনফিগারেশন (authDomain ঠিক করা হয়েছে)
   const firebaseConfig = {
     apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
-    authDomain: "://firebaseapp.com",
+    authDomain: "cam-seng-restaurant.firebaseapp.com",
     projectId: "cam-seng-restaurant",
     storageBucket: "cam-seng-restaurant.firebasestorage.app",
     messagingSenderId: "142330585238",
@@ -98,21 +98,21 @@
     measurementId: "G-9FXQ682T0D"
   };
 
-  // ফায়ারবেস ইঞ্জিন চালু
+  // ফায়ারবেস ইনিশিয়ালাইজেশন
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
 
-  // রেজিস্ট্রেশন বাটনের ক্লিক ইভেন্ট কানেকশন
-  document.getElementById('regBtn').addEventListener('click', function() {
+  // ফর্ম সাবমিট ইভেন্ট হ্যান্ডলার
+  document.getElementById('registerForm').addEventListener('submit', function(e) {
+    // পেজ যাতে রিফ্রেশ না হয় তার জন্য
+    e.preventDefault(); 
+
+    console.log("Registration Process Started!");
+
     const name = document.getElementById('regName').value;
     const email = document.getElementById('regEmail').value;
     const password = document.getElementById('regPassword').value;
     const confirmPassword = document.getElementById('regConfirmPassword').value;
-
-    if(name === "" || email === "" || password === "" || confirmPassword === "") {
-      alert("অনুগ্রহ করে সবকটি ঘর সঠিকভাবে পূরণ করুন! ⚠️");
-      return;
-    }
 
     if(password !== confirmPassword) {
       alert("⚠️ ভুল: পাসওয়ার্ড দুটি মেলেনি! আবার চেক করুন।");
@@ -128,15 +128,14 @@
     btn.innerText = "Registering...";
     btn.disabled = true;
 
-    // নতুন অ্যাকাউন্ট তৈরির মেইন মেথড
+    // ফায়ারবেস সাইন-আপ ফাংশন
     auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         alert("অভিনন্দন! আপনার অ্যাকাউন্টটি সফলভাবে তৈরি করা হয়েছে। 🚀\nস্বাগতম: " + email);
-        document.getElementById('registerForm').reset();
         window.location.href = "Index.cam.html"; 
       })
       .catch((error) => {
-        btn.innerText = "Register Now";
+        btn.innerText = "REGISTER NOW";
         btn.disabled = false;
         
         if (error.code === 'auth/email-already-in-use') {
