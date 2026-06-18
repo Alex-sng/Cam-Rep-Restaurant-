@@ -5,23 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F2W7N9TRH7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-F2W7N9TRH7');
-</script>
+    gtag('config', 'G-F2W7N9TRH7');
+  </script>
   
-  
-  <title>CAM SENG RESTURANT - Register</title>
+  <title>CAM SENG RESTAURANT - Register</title>
 </head>
 <body style="background-color: #0b0c10; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box;">
 
   <!-- মূল কন্টেইনার বক্স -->
   <div style="background: #1f2833; width: 100%; max-width: 500px; border-radius: 16px; padding: 40px 35px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border: 1px solid #45f3ff33; text-align: center; box-sizing: border-box;">
     
-    <!-- টপ ব্যানার বা স্বাগতম বার্তা -->
+    <!-- ටප ব্যানার বা স্বাগতম বার্তা -->
     <div style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); padding: 15px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
         <span style="color: #45f3ff; font-size: 16px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">Create a new account</span>
     </div>
@@ -31,38 +30,38 @@
     <h2 style="margin: 0 0 30px 0; font-size: 28px; color: #45f3ff; letter-spacing: 1px; font-weight: 600;">Sign Up</h2>
 
     <!-- ফর্ম শুরু -->
-    <form style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
+    <form id="registerForm" style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
       
       <!-- পুরো নাম ইনপুট -->
       <div>
         <label style="font-size: 16px; color: #c5c6c7; display: block; margin-bottom: 8px; font-weight: 500;">Full Name:</label>
-        <input type="text" placeholder="Enter Your Full Name" required
+        <input type="text" id="regName" placeholder="Enter Your Full Name" required
                style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #45f3ff55; background-color: #0b0c10; color: #fff; font-size: 16px; box-sizing: border-box; outline: none;">
       </div>
 
-      <!-- নম্বর/ইমেইল ইনপুট -->
+      <!-- ইমেইল ইনপুট -->
       <div>
-        <label style="font-size: 16px; color: #c5c6c7; display: block; margin-bottom: 8px; font-weight: 500;">Number or Email:</label>
-        <input type="text" placeholder="Enter Your Number or Email" required
+        <label style="font-size: 16px; color: #c5c6c7; display: block; margin-bottom: 8px; font-weight: 500;">Email Address:</label>
+        <input type="email" id="regEmail" placeholder="Enter Your Email Address" required
                style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #45f3ff55; background-color: #0b0c10; color: #fff; font-size: 16px; box-sizing: border-box; outline: none;">
       </div>
 
       <!-- পাসওয়ার্ড ইনপুট -->
       <div>
         <label style="font-size: 16px; color: #c5c6c7; display: block; margin-bottom: 8px; font-weight: 500;">Create Password:</label>
-        <input type="password" placeholder="Enter New Password" required
+        <input type="password" id="regPassword" placeholder="Enter New Password (Min 6 chars)" required
                style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #45f3ff55; background-color: #0b0c10; color: #fff; font-size: 16px; box-sizing: border-box; outline: none;">
       </div>
 
       <!-- কনফার্ম পাসওয়ার্ড ইনপুট -->
       <div>
         <label style="font-size: 16px; color: #c5c6c7; display: block; margin-bottom: 8px; font-weight: 500;">Confirm Password:</label>
-        <input type="password" placeholder="Confirm Your Password" required
+        <input type="password" id="regConfirmPassword" placeholder="Confirm Your Password" required
                style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #45f3ff55; background-color: #0b0c10; color: #fff; font-size: 16px; box-sizing: border-box; outline: none;">
       </div>
 
-      <!-- নীল-সবুজ জমকালো সাইনআপ বাটন -->
-      <button type="button" onclick="registerAlert()"
+      <!-- সাইনআপ বাটন -->
+      <button type="button" id="regBtn"
               style="background: linear-gradient(135deg, #00c6ff, #0072ff); color: #ffffff; border: none; padding: 16px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4); margin-top: 15px;">
         Register Now
       </button>
@@ -83,44 +82,75 @@
 
   </div>
 
-  <!-- বাটনের সচল করার জাভাস্ক্রিপ্ট -->
-  <script>
-    function registerAlert() {
-        alert("আপনার একাউন্টটি সফলভাবে তৈরি করা হয়েছে! 🚀");
-    }
+  <!-- ফায়ারবেস জাভাস্ক্রিপ্ট মডিউল -->
+  <script type="module">
+    import { initializeApp } from "https://gstatic.com";
+    import { getAuth, createUserWithEmailAndPassword } from "https://gstatic.com";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
+      authDomain: "cam-seng-restaurant.firebaseapp.com",
+      projectId: "cam-seng-restaurant",
+      storageBucket: "cam-seng-restaurant.firebasestorage.app",
+      messagingSenderId: "142330585238",
+      appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
+      measurementId: "G-9FXQ682T0D"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // রেজিস্ট্রেশন বাটনের ক্লিক লিসেনার
+    document.getElementById('regBtn').addEventListener('click', function() {
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('regConfirmPassword').value;
+
+      // খালি ফিল্ড চেক
+      if(name === "" || email === "" || password === "" || confirmPassword === "") {
+        alert("অনুগ্রহ করে সবকটি ঘর সঠিকভাবে পূরণ করুন! ⚠️");
+        return;
+      }
+
+      // পাসওয়ার্ড ম্যাচিং চেক
+      if(password !== confirmPassword) {
+        alert("⚠️ ভুল: পাসওয়ার্ড দুটি মেলেনি! আবার চেক করুন।");
+        return;
+      }
+
+      // পাসওয়ার্ডের দৈর্ঘ্য চেক (ফায়ারবেস সর্বনিম্ন ৬ ডিজিট চায়)
+      if(password.length < 6) {
+        alert("⚠️ নিরাপত্তা সতর্কবার্তা: পাসওয়ার্ডটি অন্তত ৬ অক্ষরের হতে হবে!");
+        return;
+      }
+
+      const btn = document.getElementById('regBtn');
+      btn.innerText = "Registering...";
+      btn.disabled = true;
+
+      // ফায়ারবেস দিয়ে নতুন ইউজার ক্রিয়েট মেথড রান
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          alert("অভিনন্দন! আপনার অ্যাকাউন্টটি সফলভাবে তৈরি করা হয়েছে। 🚀\nস্বাগতম: " + email);
+          document.getElementById('registerForm').reset();
+          window.location.href = "Index.cam.html"; // সফল হলে হোম পেজে রিডাইরেক্ট করবে
+        })
+        .catch((error) => {
+          btn.innerText = "Register Now";
+          btn.disabled = false;
+          
+          // এরর মেসেজ হ্যান্ডেলিং
+          if (error.code === 'auth/email-already-in-use') {
+            alert("⚠️ ভুল: এই ইমেইল ঠিকানাটি দিয়ে ইতিমধ্যে একটি অ্যাকাউন্ট তৈরি করা আছে!");
+          } else if (error.code === 'auth/invalid-email') {
+            alert("⚠️ ভুল: ইমেইলের ফরম্যাটটি সঠিক নয়!");
+          } else {
+            alert("রেজিস্ট্রেশন ব্যর্থ: " + error.message);
+          }
+        });
+    });
   </script>
-
-<script type="module">
-  import { initializeApp } from "https://gstatic.com";
-  import { getAuth, createUserWithEmailAndPassword } from "https://gstatic.com";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
-    authDomain: "://firebaseapp.com",
-    projectId: "cam-seng-restaurant",
-    storageBucket: "cam-seng-restaurant.firebasestorage.app",
-    messagingSenderId: "142330585238",
-    appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
-    measurementId: "G-9FXQ682T0D"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  // আপনার HTML ফর্মের সাবমিট বাটনে বা স্ক্রিপ্টে এই ফাংশনটি কল করবেন
-  window.registerUser = function(email, password) {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে! স্বাগতম: " + userCredential.user.email);
-        window.location.href = "Index.cam.html"; 
-      })
-      .catch((error) => {
-        alert("ভুল হয়েছে: " + error.message);
-      });
-  }
-</script>
-  
-  
 
 </body>
 </html>
