@@ -5,25 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F2W7N9TRH7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-F2W7N9TRH7');
-</script>
+    gtag('config', 'G-F2W7N9TRH7');
+  </script>
   
-  
-  <title>CAM SENG RESTURANT - Login</title>
+  <title>CAM SENG RESTAURANT - Login</title>
 </head>
 <body style="background-color: #0b0c10; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box;">
 
-  <!-- মূল কন্টেইনার বক্স (ল্যাপটপ মোডের জন্য width বাড়িয়ে ৫০০ পিক্সেল করা হয়েছে) -->
+  <!-- মূল কন্টেইনার বক্স -->
   <div style="background: #1f2833; width: 100%; max-width: 500px; border-radius: 16px; padding: 40px 35px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border: 1px solid #45f3ff33; text-align: center; box-sizing: border-box;">
     
     <!-- টপ ব্যানার বা স্বাগতম বার্তা -->
     <div style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); padding: 15px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-        <span style="color: #45f3ff; font-size: 16px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">Welcome to CAM SENG RESTURANT</span>
+        <span style="color: #45f3ff; font-size: 16px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">Welcome to CAM SENG RESTAURANT</span>
     </div>
 
     <!-- লোগো এরিয়া -->
@@ -31,19 +30,19 @@
     <h2 style="margin: 0 0 30px 0; font-size: 28px; color: #45f3ff; letter-spacing: 1px; font-weight: 600;">Logo</h2>
 
     <!-- ফর্ম শুরু -->
-    <form style="display: flex; flex-direction: column; gap: 25px; text-align: left;">
+    <form id="loginForm" style="display: flex; flex-direction: column; gap: 25px; text-align: left;">
       
-      <!-- নম্বর/ইমেইল ইনপুট -->
+      <!-- ইমেইল ইনপুট -->
       <div>
-        <label style="font-size: 16px; color: #c5c6c7; display: block; margin-bottom: 10px; font-weight: 500;">Number/Email:</label>
-        <input type="text" placeholder="Enter Your Number or Email" required
+        <label style="font-size: 16px; color: #c5c6c7; display: block; margin-bottom: 10px; font-weight: 500;">Email Address:</label>
+        <input type="email" id="loginEmail" placeholder="Enter Your Registered Email" required
                style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #45f3ff55; background-color: #0b0c10; color: #fff; font-size: 16px; box-sizing: border-box; outline: none;">
       </div>
 
       <!-- পাসওয়ার্ড ইনপুট -->
       <div>
         <label style="font-size: 16px; color: #c5c6c7; display: block; margin-bottom: 10px; font-weight: 500;">Password:</label>
-        <input type="password" placeholder="Enter Your Password" required
+        <input type="password" id="loginPassword" placeholder="Enter Your Password" required
                style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #45f3ff55; background-color: #0b0c10; color: #fff; font-size: 16px; box-sizing: border-box; outline: none;">
         
         <!-- পাসওয়ার্ড ভুলে যাওয়ার লিংক -->
@@ -52,13 +51,13 @@
         </div>
       </div>
 
-      <!-- প্রফেশনাল গ্রিন লগইন বাটন -->
-      <button type="button" onclick="loginAlert()"
+      <!-- লগইন বাটন -->
+      <button type="button" id="loginBtn"
               style="background: linear-gradient(135deg, #11998e, #38ef7d); color: #000000; border: none; padding: 16px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3); margin-top: 5px;">
         Login
       </button>
 
-      <!-- মাঝখানের প্রফেশনাল OR সেকশন -->
+      <!-- OR সেকশন -->
       <div style="display: flex; align-items: center; justify-content: center; margin: 5px 0;">
         <div style="flex: 1; height: 1px; background-color: #45f3ff33;"></div>
         <span style="color: #868e96; font-size: 15px; padding: 0 15px; font-weight: bold; text-transform: uppercase;">or</span>
@@ -70,14 +69,11 @@
         <a href="creatanewaccount.html" style="color: #45f3ff; font-size: 16px; text-decoration: none; font-weight: 500; border-bottom: 1px dashed #45f3ff; padding-bottom: 2px;">Create a new account</a>
       </div>
       
-      
-          <div style="margin: 40px 0;" align="center">
-      <a href="Index.cam.html" style="background: #45f3ff; color: #0b0c10; text-decoration: none; padding: 12px 25px; font-weight: bold; border-radius: 25px; box-shadow: 0 0 15px #45f3ff; font-size: 15px; display: inline-block; transition: 0.3s;">
-        ← Back to Home
-      </a>
-    </div>
-    
-
+      <div style="margin: 40px 0;" align="center">
+        <a href="Index.cam.html" style="background: #45f3ff; color: #0b0c10; text-decoration: none; padding: 12px 25px; font-weight: bold; border-radius: 25px; box-shadow: 0 0 15px #45f3ff; font-size: 15px; display: inline-block; transition: 0.3s;">
+          ← Back to Home
+        </a>
+      </div>
     </form>
 
     <!-- ফুটার কপিরাইট সেকশন -->
@@ -88,42 +84,60 @@
 
   </div>
 
-  <script>
-    function loginAlert() {
-        alert("লগইন প্রসেস সফল হয়েছে! 🚀");
-    }
-  </script>
-
+  <!-- ফায়ারবেস জাভাস্ক্রিপ্ট মডিউল -->
   <script type="module">
-  import { initializeApp } from "https://gstatic.com";
-  import { getAuth, signInWithEmailAndPassword } from "https://gstatic.com";
+    import { initializeApp } from "https://gstatic.com";
+    import { getAuth, signInWithEmailAndPassword } from "https://gstatic.com";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
-    authDomain: "://firebaseapp.com",
-    projectId: "cam-seng-restaurant",
-    storageBucket: "cam-seng-restaurant.firebasestorage.app",
-    messagingSenderId: "142330585238",
-    appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
-    measurementId: "G-9FXQ682T0D"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
+      authDomain: "cam-seng-restaurant.firebaseapp.com",
+      projectId: "cam-seng-restaurant",
+      storageBucket: "cam-seng-restaurant.firebasestorage.app",
+      messagingSenderId: "142330585238",
+      appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
+      measurementId: "G-9FXQ682T0D"
+    };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-  // লগইন বাটনের সাথে কানেক্ট করার ফাংশন
-  window.loginUser = function(email, password) {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert("সাফল্যের সাথে লগইন হয়েছে!");
-        window.location.href = "Index.cam.html";
-      })
-      .catch((error) => {
-        alert("লগইন ব্যর্থ: " + error.message);
-      });
-  }
+    // লগইন বাটনের ক্লিক ইভেন্ট লিসেনার
+    document.getElementById('loginBtn').addEventListener('click', function() {
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      if(email === "" || password === "") {
+        alert("অনুগ্রহ করে ইমেইল এবং পাসওয়ার্ড দুটিই লিখুন! ⚠️");
+        return;
+      }
+
+      const btn = document.getElementById('loginBtn');
+      btn.innerText = "Logging in...";
+      btn.disabled = true;
+
+      // ফায়ারবেস দিয়ে সাইন-ইন মেথড রান
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          alert("সাফল্যের সাথে লগইন হয়েছে! 🚀 স্বাগতম ফিরে আসার জন্য।");
+          document.getElementById('loginForm').reset();
+          window.location.href = "Index.cam.html";
+        })
+        .catch((error) => {
+          btn.innerText = "Login";
+          btn.disabled = false;
+          
+          // সুনির্দিষ্ট এরর মেসেজ হ্যান্ডেলিং
+          if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+            alert("⚠️ ভুল: ইমেইল অথবা পাসওয়ার্ডটি সঠিক নয়। আবার চেষ্টা করুন!");
+          } else if (error.code === 'auth/invalid-email') {
+            alert("⚠️ ভুল: ইমেইলের গঠনটি সঠিক নয়!");
+          } else {
+            alert("লগইন ব্যর্থ: " + error.message);
+          }
+        });
+    });
   </script>
-  
 
 </body>
 </html>
