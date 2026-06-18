@@ -82,75 +82,73 @@
 
   </div>
 
-  <!-- ফায়ারবেস জাভাস্ক্রিপ্ট মডিউল -->
-  <script type="module">
-    import { initializeApp } from "https://gstatic.com";
-    import { getAuth, createUserWithEmailAndPassword } from "https://gstatic.com";
+  <!-- ফায়ারবেস ট্র্যাডিশনাল কোর এবং অথেনটিকেশন লাইব্রেরি (গিটহাব ফ্রেন্ডলি) -->
+<script src="https://gstatic.com"></script>
+<script src="https://gstatic.com"></script>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
-      authDomain: "cam-seng-restaurant.firebaseapp.com",
-      projectId: "cam-seng-restaurant",
-      storageBucket: "cam-seng-restaurant.firebasestorage.app",
-      messagingSenderId: "142330585238",
-      appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
-      measurementId: "G-9FXQ682T0D"
-    };
+<script>
+  // ফায়ারবেস কনফিগারেশন চাবি
+  const firebaseConfig = {
+    apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
+    authDomain: "://firebaseapp.com",
+    projectId: "cam-seng-restaurant",
+    storageBucket: "cam-seng-restaurant.firebasestorage.app",
+    messagingSenderId: "142330585238",
+    appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
+    measurementId: "G-9FXQ682T0D"
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+  // ফায়ারবেস ইঞ্জিন চালু
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
 
-    // রেজিস্ট্রেশন বাটনের ক্লিক লিসেনার
-    document.getElementById('regBtn').addEventListener('click', function() {
-      const name = document.getElementById('regName').value;
-      const email = document.getElementById('regEmail').value;
-      const password = document.getElementById('regPassword').value;
-      const confirmPassword = document.getElementById('regConfirmPassword').value;
+  // রেজিস্ট্রেশন বাটনের ক্লিক ইভেন্ট কানেকশন
+  document.getElementById('regBtn').addEventListener('click', function() {
+    const name = document.getElementById('regName').value;
+    const email = document.getElementById('regEmail').value;
+    const password = document.getElementById('regPassword').value;
+    const confirmPassword = document.getElementById('regConfirmPassword').value;
 
-      // খালি ফিল্ড চেক
-      if(name === "" || email === "" || password === "" || confirmPassword === "") {
-        alert("অনুগ্রহ করে সবকটি ঘর সঠিকভাবে পূরণ করুন! ⚠️");
-        return;
-      }
+    if(name === "" || email === "" || password === "" || confirmPassword === "") {
+      alert("অনুগ্রহ করে সবকটি ঘর সঠিকভাবে পূরণ করুন! ⚠️");
+      return;
+    }
 
-      // পাসওয়ার্ড ম্যাচিং চেক
-      if(password !== confirmPassword) {
-        alert("⚠️ ভুল: পাসওয়ার্ড দুটি মেলেনি! আবার চেক করুন।");
-        return;
-      }
+    if(password !== confirmPassword) {
+      alert("⚠️ ভুল: পাসওয়ার্ড দুটি মেলেনি! আবার চেক করুন।");
+      return;
+    }
 
-      // পাসওয়ার্ডের দৈর্ঘ্য চেক (ফায়ারবেস সর্বনিম্ন ৬ ডিজিট চায়)
-      if(password.length < 6) {
-        alert("⚠️ নিরাপত্তা সতর্কবার্তা: পাসওয়ার্ডটি অন্তত ৬ অক্ষরের হতে হবে!");
-        return;
-      }
+    if(password.length < 6) {
+      alert("⚠️ নিরাপত্তা সতর্কবার্তা: পাসওয়ার্ডটি অন্তত ৬ অক্ষরের হতে হবে!");
+      return;
+    }
 
-      const btn = document.getElementById('regBtn');
-      btn.innerText = "Registering...";
-      btn.disabled = true;
+    const btn = document.getElementById('regBtn');
+    btn.innerText = "Registering...";
+    btn.disabled = true;
 
-      // ফায়ারবেস দিয়ে নতুন ইউজার ক্রিয়েট মেথড রান
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          alert("অভিনন্দন! আপনার অ্যাকাউন্টটি সফলভাবে তৈরি করা হয়েছে। 🚀\nস্বাগতম: " + email);
-          document.getElementById('registerForm').reset();
-          window.location.href = "Index.cam.html"; // সফল হলে হোম পেজে রিডাইরেক্ট করবে
-        })
-        .catch((error) => {
-          btn.innerText = "Register Now";
-          btn.disabled = false;
-          
-          // এরর মেসেজ হ্যান্ডেলিং
-          if (error.code === 'auth/email-already-in-use') {
-            alert("⚠️ ভুল: এই ইমেইল ঠিকানাটি দিয়ে ইতিমধ্যে একটি অ্যাকাউন্ট তৈরি করা আছে!");
-          } else if (error.code === 'auth/invalid-email') {
-            alert("⚠️ ভুল: ইমেইলের ফরম্যাটটি সঠিক নয়!");
-          } else {
-            alert("রেজিস্ট্রেশন ব্যর্থ: " + error.message);
-          }
-        });
-    });
-  </script>
-
+    // নতুন অ্যাকাউন্ট তৈরির মেইন মেথড
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert("অভিনন্দন! আপনার অ্যাকাউন্টটি সফলভাবে তৈরি করা হয়েছে। 🚀\nস্বাগতম: " + email);
+        document.getElementById('registerForm').reset();
+        window.location.href = "Index.cam.html"; 
+      })
+      .catch((error) => {
+        btn.innerText = "Register Now";
+        btn.disabled = false;
+        
+        if (error.code === 'auth/email-already-in-use') {
+          alert("⚠️ ভুল: এই ইমেইল ঠিকানাটি দিয়ে ইতিমধ্যে একটি অ্যাকাউন্ট তৈরি করা আছে!");
+        } else if (error.code === 'auth/invalid-email') {
+          alert("⚠️ ভুল: ইমেইলের ফরম্যাটটি সঠিক নয়!");
+        } else {
+          alert("রেজিস্ট্রেশন ব্যর্থ: " + error.message);
+        }
+      });
+  });
+</script>
+  
 </body>
 </html>
