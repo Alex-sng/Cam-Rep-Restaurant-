@@ -94,5 +94,36 @@
     }
   </script>
 
+  <script type="module">
+  import { initializeApp } from "https://gstatic.com";
+  import { getAuth, signInWithEmailAndPassword } from "https://gstatic.com";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
+    authDomain: "://firebaseapp.com",
+    projectId: "cam-seng-restaurant",
+    storageBucket: "cam-seng-restaurant.firebasestorage.app",
+    messagingSenderId: "142330585238",
+    appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
+    measurementId: "G-9FXQ682T0D"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // লগইন বাটনের সাথে কানেক্ট করার ফাংশন
+  window.loginUser = function(email, password) {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert("সাফল্যের সাথে লগইন হয়েছে!");
+        window.location.href = "Index.cam.html";
+      })
+      .catch((error) => {
+        alert("লগইন ব্যর্থ: " + error.message);
+      });
+  }
+  </script>
+  
+
 </body>
 </html>
