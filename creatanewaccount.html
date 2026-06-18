@@ -90,5 +90,37 @@
     }
   </script>
 
+<script type="module">
+  import { initializeApp } from "https://gstatic.com";
+  import { getAuth, createUserWithEmailAndPassword } from "https://gstatic.com";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
+    authDomain: "://firebaseapp.com",
+    projectId: "cam-seng-restaurant",
+    storageBucket: "cam-seng-restaurant.firebasestorage.app",
+    messagingSenderId: "142330585238",
+    appId: "1:142330585238:web:2f3fd08ccd9743dd4762b7",
+    measurementId: "G-9FXQ682T0D"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // আপনার HTML ফর্মের সাবমিট বাটনে বা স্ক্রিপ্টে এই ফাংশনটি কল করবেন
+  window.registerUser = function(email, password) {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে! স্বাগতম: " + userCredential.user.email);
+        window.location.href = "Index.cam.html"; 
+      })
+      .catch((error) => {
+        alert("ভুল হয়েছে: " + error.message);
+      });
+  }
+</script>
+  
+  
+
 </body>
 </html>
