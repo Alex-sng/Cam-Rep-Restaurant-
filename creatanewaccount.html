@@ -62,11 +62,16 @@
 
 <!-- ফায়ারবেস ট্র্যাডিশনাল কোর এবং অথেনটিকেশন লাইব্রেরি (লিংক ঠিক করা হয়েছে) -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
+<div style="text-align: center; margin-top: 15px;">
+  <a href="Index.cam.html" id="backHomeBtn" style="text-decoration: none; display: inline-block; padding: 10px 20px; background-color: #17a2b8; color: white; border-radius: 20px; font-weight: bold;">
+    ← Back to Home
+  </a>
+</div>
+
 <script>
-  // ফায়ারবেস কনফিগারেশন (authDomain ঠিক করা হয়েছে)
+  // ফায়ারবেস কনফিগারেশন
   const firebaseConfig = {
     apiKey: "AIzaSyBEs5Tchusl9iSNDgik95jL_qMBQaF5lQk",
     authDomain: "cam-seng-restaurant.firebaseapp.com",
@@ -83,7 +88,6 @@
 
   // ফর্ম সাবমিট ইভেন্ট হ্যান্ডলার
   document.getElementById('registerForm').addEventListener('submit', function(e) {
-    // পেজ যাতে রিফ্রেশ না হয় তার জন্য
     e.preventDefault(); 
 
     console.log("Registration Process Started!");
@@ -117,16 +121,12 @@
         btn.innerText = "REGISTER NOW";
         btn.disabled = false;
         
-        if (error.code === 'auth/email-already-in-use') {
-          alert("⚠️ ভুল: এই ইমেইল ঠিকানাটি দিয়ে ইতিমধ্যে একটি অ্যাকাউন্ট তৈরি করা আছে!");
-        } else if (error.code === 'auth/invalid-email') {
-          alert("⚠️ ভুল: ইমেইলের ফরম্যাটটি সঠিক নয়!");
-        } else {
-          alert("রেজিস্ট্রেশন ব্যর্থ: " + error.message);
-        }
+        // এখানে সাধারণ অ্যালার্টের বদলে সরাসরি ফায়ারবেসের পাঠানো আসল মেসেজটি দেখাবে
+        alert("রেজিস্ট্রেশন ব্যর্থ হয়েছে!\nকারণ: " + error.message);
       });
   });
 </script>
+  
   
   
 </body>
